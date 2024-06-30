@@ -1,0 +1,20 @@
+<div class="mainPage">
+  <h1 [ngClass]="{'d-none': !startTitle }" [@titleOneAnimation]="titleOneState" id="titleOne">Frontend</h1>
+  <h1 [ngClass]="{'d-none': !startTitle }" [@titleTwoAnimation]="titleTwoState" id="titleTwo">Developer</h1>
+  <div [@titleNameAnimation]="nameSlideIn" class="mainName">
+    <div [ngClass]="{'drawLine': slideBorder}" class="mainLine"></div>
+    <h2 [ngClass]="{'d-none': !startTitle }">Alexander Dause</h2>
+  </div>
+</div>
+<div class="mainBorder">
+  <div class="myMail">
+    <a href="#contact">alexander&#x0040;dause.de</a>
+  </div>
+  <div class="scrollSection">
+    <div class="scrollArrow">
+      <img [ngClass]="{'animated bounce': startArrow}" src="../../assets/images/arrow.png"
+        style="animation-duration: 2.5s; animation-delay: 1.5s;">
+    </div>
+    <span>Scroll<br>down</span>
+  </div>
+</div>

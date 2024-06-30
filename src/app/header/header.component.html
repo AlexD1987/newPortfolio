@@ -1,0 +1,17 @@
+<div class="header" id="header">
+  <img class="logo" src="../../assets/images/logo.png" alt="">
+
+  <div class="headerMenuSection">
+    <div class="menuBar">
+      <a [ngClass]="{'openMenu': menuOpen}" class="aboutMenu fromLeft" href="#aboutMe">About me</a>
+      <a [ngClass]="{'openMenu': menuOpen}" class="skillsMenu fromLeft" href="#mySkills">Skills</a>
+      <a [ngClass]="{'openMenu': menuOpen}" class="portfolioMenu fromLeft" href="#myProjects">Portfolio</a>
+    </div>
+
+    <div class="headerMenu" id="headerMenu" (click)="toggleButton()" [ngClass]="{'open': menuOpen}">
+      <div class="menuBtn">
+      </div>
+    </div>
+  </div>
+
+</div>

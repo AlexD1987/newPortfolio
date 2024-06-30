@@ -1,0 +1,187 @@
+.portfolioProjects {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding-top: 80px;
+
+  .portfolioHead {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+  }
+
+  .projectLinks {
+      padding-left: 12%;
+      padding-right: 12%;
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+
+      .singleProject {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+
+          .projectImage {
+              width: 100%;
+              display: flex;
+
+              img {
+                  width: 600px;
+                  height: auto;
+                  z-index: 10;
+                  aspect-ratio: 16 / 9;
+                  object-fit: cover;
+                  -webkit-filter: grayscale(100%);
+                  -moz-filter: grayscale(100%);
+                  filter: grayscale(100%);
+                  transition: all 0.5s ease-in-out;
+              }
+
+              .projectBorder {
+                  border: solid 3px black;
+                  width: 600px;
+                  height: 337px;
+                  position: absolute;
+                  z-index: 11;
+                  top: 0;
+                  left: 0;
+                  opacity: 0;
+                  transition: opacity 0.5s cubic-bezier(.5, .03, .41, 1),
+                      transform 0.5s cubic-bezier(.5, .03, .41, 1);
+              }
+
+              .reverseBorder {
+                  border: solid 3px black;
+                  width: 600px;
+                  height: 337px;
+                  position: absolute;
+                  z-index: 11;
+                  top: 0;
+                  opacity: 0;
+                  transition: opacity 0.5s cubic-bezier(.5, .03, .41, 1),
+                      transform 0.5s cubic-bezier(.5, .03, .41, 1);
+              }
+
+              .projectInfo {
+                  margin-top: 32px;
+                  width: 252px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 32px;
+                  transition: all 0.7s ease-in-out;
+                  opacity: 0;
+                  z-index: 9;
+                  transform: translateX(-200px);
+
+                  h5 {
+                      margin-block-end: 0;
+                      font-size: 32px !important;
+                      font-weight: 700 !important;
+                  }
+
+                  span {
+                      color: #FF9900;
+                  }
+
+                  .linkBtns {
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;
+                      gap: 24px;
+
+                      .btn-1 svg {
+                          height: 40px;
+                          width: 100%;
+                      }
+
+                      .btn {
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          padding-left: 16px;
+                          padding-right: 16px;
+                          font-size: 24px;
+                          line-height: normal;
+                          text-align: center center;
+                          margin: 0;
+                      }
+                  }
+              }
+
+              .reverseInfo {
+                  transform: translateX(200px) !important;
+                  gap: 32px;
+
+                  img {
+                      right: 0 !important;
+                  }
+              }
+
+              &:hover .projectBorder {
+                  animation: fadeIn 0.3s ease-in-out;
+                  opacity: 1;
+                  transform: translate(8px, 8px);
+              }
+
+              &:hover .reverseBorder {
+                  animation: fadeIn 0.3s ease-in-out;
+                  opacity: 1;
+                  transform: translate(-8px, 8px);
+              }
+
+              &:hover img {
+                  -webkit-filter: grayscale(0%);
+                  -moz-filter: grayscale(0%);
+                  filter: grayscale(0%);
+              }
+
+              &:hover .projectInfo {
+                  animation: fadeIn 0.8s ease-in-out;
+                  opacity: 1;
+                  transform: translateX(100px);
+              }
+
+              &:hover .reverseInfo {
+                  animation: fadeIn 0.8s ease-in-out;
+                  opacity: 1;
+                  transform: translateX(-100px) !important;
+              }
+          }
+
+          .reverseImage {
+              justify-content: flex-end !important;
+
+          }
+
+          h4 {
+              font-size: 56px;
+              margin-block-start: 0;
+              color: #FF9900;
+          }
+      }
+  }
+}
+
+.skillsArrow {
+  padding-top: 124px;
+  padding-left: 12%;
+  padding-right: 20%;
+  display: flex;
+  justify-content: flex-end;
+
+  .skillArrowAnimation {
+      overflow: hidden;
+      width: 160px;
+      height: 160px;
+      position: relative;
+
+      img {
+          height: 100%;
+          position: absolute;
+          animation: runAnimation 7s linear infinite;
+      }
+  }
+}
