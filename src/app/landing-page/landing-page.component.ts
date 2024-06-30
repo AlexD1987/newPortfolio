@@ -1,6 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 
@@ -54,6 +57,12 @@ export class LandingPageComponent implements OnInit {
   startArrow: boolean = false;
   openMenu: boolean = false;
 
+  constructor(private http: HttpClient, private translateService: TranslateService) {
+    // Optional: Standardsprache setzen
+    translateService.setDefaultLang('en');
+  }
+
+
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -74,3 +83,15 @@ export class LandingPageComponent implements OnInit {
     }, 7000);
   }
 }
+
+@NgModule({
+  imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => new HttpLoader(http, './assets/i18n'),
+        deps: [HttpClient],
+      },
+    })
+  ]
+})
