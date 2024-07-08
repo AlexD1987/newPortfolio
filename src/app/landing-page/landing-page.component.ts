@@ -58,9 +58,11 @@ export class LandingPageComponent implements OnInit {
   startArrow: boolean = false;
   openMenu: boolean = false;
 
-
+  constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
+
+
     setTimeout(() => {
       this.titleOneState = 'active';
       this.startTitle = true;

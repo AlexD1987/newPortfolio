@@ -1,4 +1,8 @@
 {
   "TITLE_ONE": "Frontend",
-  "TITLE_TWO": "Developer"
+  "TITLE_TWO": "Developer",
+  "ABOUT_TITLE": "About me",
+  "ABOUT_ONE": "Hello, I am a front-end developer from the cozy town of Gifhorn, Germany. I have always been passionate about technical innovations and interested in the world of development. So now I am eagerly looking forward to translating this enthusiasm into crafting intuitive and visually engaging front-end solutions. Join me in shaping the digital landscape!",
+  "ABOUT_TWO": "Over a year ago, I decided to dive into the world of development and make a professional change in that direction. The Developer Academy greatly assisted me with its highly practical training program.",
+  "ABOUT_THREE": "In my previous job as a machine and plant operator, problem-solving was a significant and essential aspect of my work, which I found most enjoyable. Since this skill is crucial in programming, I am very excited to immerse myself in it."
 }

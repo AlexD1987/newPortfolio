@@ -67,6 +67,16 @@
 
     a.fromLeft::after{  transform-origin:  0% 50%; }
 
+    .language {
+      transform: translateY(-200px);
+
+      span {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
     .aboutMenu {
       transform: translateY(-160px);
     }
@@ -134,5 +144,9 @@
 
 .openMenu {
   transform: translateY(0px) !important;
+}
+
+.transFont {
+  color: #FF9900;
 }
 

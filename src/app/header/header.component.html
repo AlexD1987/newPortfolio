@@ -3,6 +3,9 @@
 
   <div class="headerMenuSection">
     <div class="menuBar">
+      <a [ngClass]="{'openMenu': menuOpen}" class="language fromLeft"href="" (click)="switchLang()">
+        <span [ngClass]="{'transFont': !translated}">EN</span>/<span [ngClass]="{'transFont': translated}">DE</span>
+      </a>
       <a [ngClass]="{'openMenu': menuOpen}" class="aboutMenu fromLeft" href="#aboutMe">About me</a>
       <a [ngClass]="{'openMenu': menuOpen}" class="skillsMenu fromLeft" href="#mySkills">Skills</a>
       <a [ngClass]="{'openMenu': menuOpen}" class="portfolioMenu fromLeft" href="#myProjects">Portfolio</a>
