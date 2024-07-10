@@ -1,152 +1,168 @@
 .header {
-  background-color: #FFFCF3;
-  height: 100px;
-  padding-left: 12%;
-  padding-right: 12%;
+    background-color: #FFFCF3;
+    height: 100px;
+    padding-left: 12%;
+    padding-right: 12%;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  transition: top .7s ease-in;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    transition: top .7s ease-in;
 
-  .logo {
-      height: 50px;
-      width: auto;
-  }
-
-  #menu {
-    &:hover {
-      cursor: pointer;
+    .logo {
+        height: 50px;
+        width: auto;
     }
-  }
+
+    #menu {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .active {
-  top: 0;
+    top: 0;
 }
 
 .headerMenuSection {
-  display: flex;
-  gap: 72px;
-
-  .menuBar {
     display: flex;
-    justify-content: center;
-    gap: 32px;
-    align-items: center;
+    gap: 72px;
 
+    .menuBar {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        align-items: center;
 
-    a {
-      text-decoration: none;
-      padding-left: 4px;
-      padding-right: 4px;
-      font-family: 'Syne';
-      color: black;
-      font-size: 24px;
-      transition: all .8s ease-in-out;
-      overflow-y: hidden;
-    }
+        .langSwitch {
+            transition: all .8s ease-in-out;
+            overflow-y: hidden;
+            padding-bottom: 2px;
 
-    a::after {
-      display: block;
-      content: '';
-      border-bottom: solid 2px #FF9900;
-      transform: scaleX(0);
-      transition: transform .3s ease-in-out;
-    }
+            &:hover {
+                cursor: default;
+            }
 
-    a:hover::after {
-      transform: scaleX(1);
-    }
-
-    a.fromLeft::after{  transform-origin:  0% 50%; }
-
-    .language {
-      transform: translateY(-200px);
-
-      span {
-        &:hover {
-          cursor: pointer;
+            span {
+                &:hover {
+                    color: #FF9900;
+                }
+            }
         }
-      }
+
+        a {
+            text-decoration: none;
+            padding-left: 4px;
+            padding-right: 4px;
+            font-family: 'Syne';
+            color: black;
+            font-size: 24px;
+            transition: all .8s ease-in-out;
+            overflow-y: hidden;
+        }
+
+        a::after {
+            display: block;
+            content: '';
+            border-bottom: solid 2px #FF9900;
+            transform: scaleX(0);
+            transition: transform .3s ease-in-out;
+        }
+
+        a:hover::after {
+            transform: scaleX(1);
+        }
+
+        a.fromLeft::after {
+            transform-origin: 0% 50%;
+        }
+
+        .language {
+            transform: translateY(-200px);
+
+            span {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .aboutMenu {
+            transform: translateY(-160px);
+        }
+
+        .skillsMenu {
+            transform: translateY(-120px);
+        }
+
+        .portfolioMenu {
+            transform: translateY(-80px);
+        }
     }
 
-    .aboutMenu {
-      transform: translateY(-160px);
+    .headerMenu {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+
+        .menuBtn {
+            width: 30px;
+            height: 4px;
+            background-color: black;
+            transition: all .5s ease-in-out;
+        }
+
+        .menuBtn::before,
+        .menuBtn::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 4px;
+            background-color: black;
+            transition: all .5s ease-in-out;
+        }
+
+        .menuBtn::before {
+            transform: translateY(-12px);
+        }
+
+        .menuBtn::after {
+            transform: translateY(12px);
+        }
+
     }
 
-    .skillsMenu {
-      transform: translateY(-120px);
+    .headerMenu.open .menuBtn {
+        transform: translateX(-50px);
+        background-color: transparent;
     }
 
-    .portfolioMenu {
-      transform: translateY(-80px);
-    }
-  }
 
-  .headerMenu {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-    transition: all .5s ease-in-out;
-
-    .menuBtn {
-      width: 30px;
-      height: 4px;
-      background-color: black;
-      transition: all .5s ease-in-out;
+    .headerMenu.open .menuBtn::before {
+        transform: rotate(45deg) translate(35px, -35px);
     }
 
-    .menuBtn::before,
-    .menuBtn::after {
-      content: '';
-      position: absolute;
-      width: 30px;
-      height: 4px;
-      background-color: black;
-      transition: all .5s ease-in-out;
+    .headerMenu.open .menuBtn::after {
+        transform: rotate(-45deg) translate(35px, 35px);
     }
-
-    .menuBtn::before {
-      transform: translateY(-12px);
-    }
-
-    .menuBtn::after {
-      transform: translateY(12px);
-    }
-
-  }
-
-  .headerMenu.open .menuBtn {
-    transform: translateX(-50px);
-    background-color: transparent;
-  }
-
-
-  .headerMenu.open .menuBtn::before {
-    transform: rotate(45deg) translate(35px, -35px);
-  }
-
-  .headerMenu.open .menuBtn::after {
-    transform: rotate(-45deg) translate(35px, 35px);
-  }
 }
 
 .openMenu {
-  transform: translateY(0px) !important;
+    transform: translateY(0px) !important;
 }
 
 .transFont {
-  color: #FF9900;
+    color: #FF9900;
 }
-

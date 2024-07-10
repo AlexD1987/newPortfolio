@@ -14,14 +14,16 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
   menuOpen: boolean = false;
   LANG_KEY: string | undefined;
-  translated: boolean = false;
+  translatedEn: boolean = true;
+  translatedDe: boolean = false;
+
 
   constructor(private translateService: TranslateService) { }
 
 
 
   async ngOnInit(): Promise<void> {
-    await this.getLocalLang();
+    /* await this.getLocalLang(); */
   }
 
   getLocalLang() {
@@ -31,22 +33,25 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('LANG_KEY', 'en');
       this.LANG_KEY = 'en';
       this.translateService.use(this.LANG_KEY);
-      this.translated = false;
-      console.log(this.translated);
+
     } else {
       this.LANG_KEY = loadedLang;
       this.translateService.use('de');
-      this.translated = true;
-      console.log(this.translated);
+
     }
   }
 
-  switchLang() {
-    console.log(this.LANG_KEY);
-    if (this.LANG_KEY === 'en') {
+  switchLang(lang: string) {
+    if (lang === 'en') {
       localStorage.setItem('LANG_KEY', 'de');
+      this.translateService.use('en');
+      this.translatedEn = true;
+      this.translatedDe = false;
     } else {
       localStorage.setItem('LANG_KEY', 'en');
+      this.translateService.use('de');
+      this.translatedDe = true;
+      this.translatedEn = false;
     }
   }
 
