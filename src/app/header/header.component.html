@@ -2,14 +2,14 @@
     <img class="logo" src="../../assets/images/logo.png" alt="">
     <div class="headerMenuSection">
         <div class="menuBar">
-            <div [ngClass]="{'openMenu': menuOpen}" class="langSwitch language fromLeft">
-                <span [ngClass]="{'transFont': translatedEn}" (click)="switchLang('en')">EN</span>
-                /
-                <span [ngClass]="{'transFont': translatedDe}" (click)="switchLang('de')">DE</span>
-            </div>
-            <a [ngClass]="{'openMenu': menuOpen}" class="aboutMenu fromLeft" href="#aboutMe">About me</a>
-            <a [ngClass]="{'openMenu': menuOpen}" class="skillsMenu fromLeft" href="#mySkills">Skills</a>
+            <a [ngClass]="{'openMenu': menuOpen}" class="aboutMenu fromLeft" href="#aboutMe">{{ 'ABOUT_TITLE' | translate }}</a>
+            <a [ngClass]="{'openMenu': menuOpen}" class="skillsMenu fromLeft" href="#mySkills">{{ 'SKILL_TITLE' | translate }}</a>
             <a [ngClass]="{'openMenu': menuOpen}" class="portfolioMenu fromLeft" href="#myProjects">Portfolio</a>
+            <div [ngClass]="{'openMenu': menuOpen}" class="langSwitch language fromLeft">
+              <span [ngClass]="{'transFont': translatedEn}" (click)="switchLang('en')">EN</span>
+              /
+              <span [ngClass]="{'transFont': translatedDe}" (click)="switchLang('de')">DE</span>
+          </div>
         </div>
         <div class="headerMenu" id="headerMenu" (click)="toggleButton()" [ngClass]="{'open': menuOpen}">
             <div class="menuBtn">

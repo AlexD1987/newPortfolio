@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { isEmail } from 'validator';
+import { TranlateModule } from "../translate.module";
 
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranlateModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })

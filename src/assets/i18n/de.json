@@ -2,9 +2,19 @@
   "TITLE_ONE": "Frontend",
   "TITLE_TWO": "Entwickler",
   "ABOUT_TITLE": "Über mich",
-  "ABOUT_ONE": "Hallo, ich bin ein Frontend-Entwickler aus der kleinen Stadt Gifhorn. Ich habe mich schon immer für technische Innovationen begeistert und interessiere mich für die Welt der Entwicklung. Jetzt freue ich mich darauf, diesen Enthusiasmus in die Entwicklung intuitiver und visuell ansprechender Frontend-Lösungen umzusetzen.",
-  "ABOUT_TWO": "Vor über einem Jahr beschloss ich, in die Welt der Entwicklung einzutauchen und mich beruflich in diese Richtung zu verändern. Die Developer Academy hat mich dabei mit ihrem sehr praxisnahen Ausbildungsprogramm sehr unterstützt.",
-  "ABOUT_THREE": "In meiner Karriere in der Automobilindustrie war das Lösen von Problemen immer ein wichtiger Teil meiner Arbeit, dies hat mir immer sehr viel Freude bereitet. Da diese Fähigkeit bei der Programmierung von entscheidender Bedeutung ist, freue ich mich sehr darauf, mich in diese Materie zu vertiefen. Gestalten Sie mit mir die digitale Landschaft!",
+  "ABOUT_ONE": "Hallo, ich bin ein Frontend-Entwickler aus der kleinen Stadt Gifhorn. Ich habe schon immer eine Leidenschaft für teschniche Innovationen. Jetzt freue ich mich darauf, diesen Enthusiasmus in die Entwicklung intuitiver und visuell ansprechender Frontend-Lösungen umzusetzen.",
+  "ABOUT_TWO": "Vor über einem Jahr beschloss ich, in die Welt der Entwicklung einzutauchen und mich beruflich in diese Richtung zu verändern. Die Developer Academy hat mich dabei mit ihrem praxisnahen Ausbildungsprogramm sehr unterstützt.",
+  "ABOUT_THREE": "In meiner Karriere in der Automobilindustrie war das Lösen von Problemen immer ein wichtiger Teil meiner Arbeit, dies hat mir immer sehr viel Freude bereitet. Da diese Fähigkeit bei der Programmierung von entscheidender Bedeutung ist, freue ich mich sehr darauf, weiter in diese Materie einzutauchen. Gestalten Sie mit mir die digitale Landschaft!",
+  "ABOUT_BTN": "Lass uns reden",
   "SCROLL_ONE": "Scroll",
-  "SCROLL_TWO": "runter"
+  "SCROLL_TWO": "runter",
+  "SKILL_TITLE": "Meine Fähigkeiten",
+  "PORTFOLIO_DESCRIPTION": "Eine kleine Sammlung meiner Projekte - probiere sie gerne aus.",
+  "CONTACT_TITLE": "Kontraktiere mich!",
+  "CONTACT_ONE": "Möchten Sie ein neues Projekt besprechen?",
+  "CONTACT_TWO": "Lassen Sie uns Ihre Ideen besprechen und sie verwirklichen.",
+  "INPUT_NAME": "Ihr Name",
+  "INPUT_MAIL": "Ihre Email",
+  "INPUT_MESSAGE": "Ihre Nachricht",
+  "CONTACT_BTN": "Abschicken"
 }

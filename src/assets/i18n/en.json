@@ -5,6 +5,16 @@
   "ABOUT_ONE": "Hello, I am a front-end developer from the cozy town of Gifhorn, Germany. I am passionate about technical innovations and interested in the world of development. So now I am eagerly looking forward to translating this enthusiasm into crafting intuitive and visually engaging front-end solutions.",
   "ABOUT_TWO": "Over a year ago, I decided to dive into the world of development and make a professional change in that direction. The Developer Academy greatly assisted me with its highly practical training program.",
   "ABOUT_THREE": "In my career in the automotive industry, problem solving has always been an important part of my work and I have always enjoyed it. As this skill is crucial in programming, I'm really looking forward to delving into this subject matter. Shape the digital landscape with me!",
+  "ABOUT_BTN": "Let's talk",
   "SCROLL_ONE": "Scroll",
-  "SCROLL_TWO": "down"
+  "SCROLL_TWO": "down",
+  "SKILL_TITLE": "My skills",
+  "PORTFOLIO_DESCRIPTION": "This page is a sample of my work - please feel free to try them out.",
+  "CONTACT_TITLE": "Say Hi!",
+  "CONTACT_ONE": "Want to discuss a new project?",
+  "CONTACT_TWO": "Say hello! let's discuss your ideas and make it happen.",
+  "INPUT_NAME": "Your name",
+  "INPUT_MAIL": "Your email",
+  "INPUT_MESSAGE": "Your message",
+  "CONTACT_BTN": "Send message"
 }

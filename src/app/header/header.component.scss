@@ -85,7 +85,7 @@
         }
 
         .language {
-            transform: translateY(-200px);
+            transform: translateY(-80px);
 
             span {
                 &:hover {
@@ -95,15 +95,15 @@
         }
 
         .aboutMenu {
-            transform: translateY(-160px);
+            transform: translateY(-200px);
         }
 
         .skillsMenu {
-            transform: translateY(-120px);
+            transform: translateY(-160px);
         }
 
         .portfolioMenu {
-            transform: translateY(-80px);
+            transform: translateY(-120px);
         }
     }
 
