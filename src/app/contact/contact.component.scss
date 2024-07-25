@@ -114,3 +114,15 @@
   padding-left: 16px;
   margin-top: 2px;
 }
+
+@media (max-width: 1300px) {
+  .contactSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h3 {
+      padding-left: 0;
+    }
+  }
+}

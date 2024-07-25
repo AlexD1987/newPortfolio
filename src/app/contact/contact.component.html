@@ -6,15 +6,15 @@
     <form class="contactInputFields" (ngSubmit)="onSubmit($event)" [formGroup]="contactForm">
       <div>
         <input [(ngModel)]="contactData.name" type="text" placeholder="{{ 'INPUT_NAME' | translate }}" name="" id="contactName" formControlName="name" [ngClass]="{'errorBorder': validName === false, 'validBorder': validName}">
-        <p *ngIf="validName === false" class="errorInput">Please enter your name</p>
+        <p *ngIf="validName === false" class="errorInput">{{ 'ERROR_NAME' | translate }}</p>
       </div>
       <div>
         <input [(ngModel)]="contactData.email" type="email" placeholder="{{ 'INPUT_MAIL' | translate }}" name="" id="contactMail" formControlName="email" [ngClass]="{'errorBorder': validMail === false, 'validBorder': validMail}">
-        <p *ngIf="validMail === false" class="errorInput">Please enter your email address</p>
+        <p *ngIf="validMail === false" class="errorInput">{{ 'ERROR_MAIL' | translate }}</p>
       </div>
       <div>
         <textarea [(ngModel)]="contactData.message" placeholder="{{ 'INPUT_MESSAGE' | translate }}" name="" id="contactMessage" cols="30" rows="10" formControlName="message" [ngClass]="{'errorBorder': validMessage === false, 'validBorder': validMessage}"></textarea>
-        <p *ngIf="validMail === false" class="errorInput">Please enter your message</p>
+        <p *ngIf="validMail === false" class="errorInput">{{ 'ERROR_MESSAGE' | translate }}</p>
       </div>
 
       <div class="sendBtn">

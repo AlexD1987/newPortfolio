@@ -58,8 +58,8 @@
 }
 
 .mainBorder {
-    padding-left: 12%;
-    padding-right: 12%;
+    margin-left: 12%;
+    margin-right: 12%;
     padding-bottom: 32px;
     display: flex;
     align-items: flex-end;
@@ -76,6 +76,7 @@
             color: black;
             font-family: 'Syne';
             font-size: 24px;
+            white-space: nowrap;
 
             &:hover {
                 cursor: pointer;
@@ -106,4 +107,11 @@
 
 .drawLine {
     animation: drawLine 2s forwards;
+}
+
+@media (max-width: 1300px) {
+  .mainBorder {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
 }

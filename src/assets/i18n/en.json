@@ -16,5 +16,9 @@
   "INPUT_NAME": "Your name",
   "INPUT_MAIL": "Your email",
   "INPUT_MESSAGE": "Your message",
-  "CONTACT_BTN": "Send message"
+  "CONTACT_BTN": "Send message",
+  "ERROR_NAME": "Please enter your name",
+  "ERROR_MAIL": "Please enter your email address",
+  "ERROR_MESSAGE": "Please enter your message",
+  "LEGAL_NOTICE": "Legal notice"
 }

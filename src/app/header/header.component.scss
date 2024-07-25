@@ -166,3 +166,10 @@
 .transFont {
     color: #FF9900;
 }
+
+@media (max-width: 1300px) {
+  .header {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}

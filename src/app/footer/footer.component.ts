@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { TranlateModule } from "../translate.module";
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [TranlateModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })

@@ -9,12 +9,16 @@
   "SCROLL_ONE": "Scroll",
   "SCROLL_TWO": "runter",
   "SKILL_TITLE": "Meine Fähigkeiten",
-  "PORTFOLIO_DESCRIPTION": "Eine kleine Sammlung meiner Projekte - probiere sie gerne aus.",
+  "PORTFOLIO_DESCRIPTION": "Eine Sammlung meiner Projekte - probiere sie gerne aus.",
   "CONTACT_TITLE": "Kontraktiere mich!",
   "CONTACT_ONE": "Möchten Sie ein neues Projekt besprechen?",
   "CONTACT_TWO": "Lassen Sie uns Ihre Ideen besprechen und sie verwirklichen.",
   "INPUT_NAME": "Ihr Name",
   "INPUT_MAIL": "Ihre Email",
   "INPUT_MESSAGE": "Ihre Nachricht",
-  "CONTACT_BTN": "Abschicken"
+  "CONTACT_BTN": "Senden",
+  "ERROR_NAME": "Bitte gib deinen Namen ein",
+  "ERROR_MAIL": "Bitte gib eine gültige email Adresse ein",
+  "ERROR_MESSAGE": "Bitte gib eine Nachricht ein",
+  "LEGAL_NOTICE": "Impressum"
 }
