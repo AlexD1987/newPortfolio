@@ -3,6 +3,11 @@
     <div class="aboutDescription">
       <div class="aboutText">
         <h3>{{ 'ABOUT_TITLE' | translate }}</h3>
+        <div #responsiveImage class="aboutImage d-none">
+          <img src="../../assets/images/3.jpg" alt="">
+          <div class="imageBorder">
+          </div>
+        </div>
         <span>{{ 'ABOUT_ONE' | translate }}</span>
         <span>{{ 'ABOUT_TWO' | translate }}</span>
         <span>{{ 'ABOUT_THREE' | translate }}</span>
@@ -14,7 +19,7 @@
         {{ 'ABOUT_BTN' | translate }}
       </a>
     </div>
-    <div class="aboutImage">
+    <div #fullScreenImage class="aboutImage">
       <img src="../../assets/images/3.jpg" alt="">
       <div class="imageBorder">
       </div>

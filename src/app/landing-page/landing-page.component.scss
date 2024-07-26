@@ -7,6 +7,14 @@
   }
 }
 
+@keyframes responsiveDrawLine {
+  from {
+    width: 0px;
+  } to {
+    width: 120px;
+  }
+}
+
 
 .mainPage {
     width: 100%;
@@ -109,9 +117,59 @@
     animation: drawLine 2s forwards;
 }
 
-@media (max-width: 1300px) {
+.d-none {
+  display: none;
+}
+
+@media (width <= 1300px) {
   .mainBorder {
     margin-left: 3%;
     margin-right: 3%;
+  }
+}
+
+@media (width <= 1000px) {
+  .mainPage {
+    h1 {
+      font-size: 60px;
+    }
+
+    .mainName {
+      width: 500px;
+      justify-content: center;
+      h2 {
+        font-size: 48px;
+      }
+    }
+  }
+
+  .mainBorder {
+    .myMail {
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .scrollSection {
+    span {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (width <= 700px) {
+  .mainPage {
+    h1 {
+      font-size: 40px;
+      margin-block-end: 8px;
+    }
+
+    .mainName {
+      h2 {
+        font-size: 28px;
+        margin-block-start: -8px;
+      }
+    }
   }
 }

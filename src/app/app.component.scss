@@ -1,0 +1,7 @@
+@media(width <= 1100px) {
+  body {
+    display:flex;
+    flex-direction: column;
+    gap: 1000px;
+  }
+}

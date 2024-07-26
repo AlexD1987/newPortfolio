@@ -2,7 +2,7 @@
   <h1 [ngClass]="{'d-none': !startTitle }" [@titleOneAnimation]="titleOneState" id="titleOne">{{ 'TITLE_ONE' | translate  }}</h1>
   <h1 [ngClass]="{'d-none': !startTitle }" [@titleTwoAnimation]="titleTwoState" id="titleTwo">{{ 'TITLE_TWO' | translate  }}</h1>
   <div [@titleNameAnimation]="nameSlideIn" class="mainName">
-    <div [ngClass]="{'drawLine': slideBorder}" class="mainLine"></div>
+    <div #border [ngClass]="{'drawLine': slideBorder}" class="mainLine"></div>
     <h2 [ngClass]="{'d-none': !startTitle }">Alexander Dause</h2>
   </div>
 </div>

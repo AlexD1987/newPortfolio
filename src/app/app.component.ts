@@ -24,13 +24,7 @@ export class AppComponent implements OnInit {
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    const savedLanguage = localStorage.getItem(this.LANG_KEY);
 
-    if (savedLanguage) {
-      this.translate.use(savedLanguage);
-    } else {
-      this.translate.use('en');
-    }
 
   }
 

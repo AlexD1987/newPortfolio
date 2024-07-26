@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, Renderer2, ElementRef, HostListener, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -49,7 +49,9 @@ import { TranlateModule } from "../translate.module";
 })
 
 
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent implements OnInit, AfterViewInit {
+  @ViewChild('border') border: ElementRef | undefined;
+
   titleOneState: string = 'inactive';
   startTitle: boolean = false;
   titleTwoState: string = 'inactive';
@@ -58,7 +60,7 @@ export class LandingPageComponent implements OnInit {
   startArrow: boolean = false;
   openMenu: boolean = false;
 
-  constructor(private translateService: TranslateService) { }
+  constructor(private translateService: TranslateService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
 
@@ -79,5 +81,29 @@ export class LandingPageComponent implements OnInit {
     setTimeout(() => {
       this.startArrow = true;
     }, 7000);
+  }
+
+  ngAfterViewInit(): void {
+    this.responsiveDesign();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.responsiveDesign();
+  }
+
+  private responsiveDesign() {
+    let screenWidth = window.innerWidth;
+    let border = this.border?.nativeElement;
+
+    this.handleResponsiveDesign(screenWidth, border);
+  }
+
+  handleResponsiveDesign(screenWidth: number, border: any) {
+    if (screenWidth <= 1000) {
+      this.renderer.addClass(border, 'd-none');
+    } else {
+      this.renderer.removeClass(border, 'd-none');
+    }
   }
 }

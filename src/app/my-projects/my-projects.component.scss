@@ -194,7 +194,8 @@
 
 @media (max-width: 1100px) {
     .projectLinks {
-        gap: 280px !important;
+        gap: 260px !important;
+        padding-bottom: 120px;
     }
 
     .projectImage,
@@ -202,15 +203,15 @@
         justify-content: center !important;
 
         img {
-            width: 360px !important;
+            width: 400px !important;
             height: auto !important;
             aspect-ratio: 16/9 !important;
             position: absolute;
         }
 
         .projectBorder {
-            width: 360px !important;
-            height: 200px !important;
+            width: 400px !important;
+            height: 222px !important;
             top: auto !important;
             left: auto !important;
         }

@@ -89,9 +89,39 @@
   }
 }
 
+.responsiveImage {
+  margin-bottom: 0px !important;
+
+}
+
+.d-none {
+  display: none !important;
+}
+
 @media (max-width: 1300px) {
   .aboutMe {
     margin-left: 3%;
     margin-right: 3%;
+  }
+}
+
+@media (width <= 1000px) {
+  .aboutMe {
+    justify-content: center;
+
+    .aboutDescription {
+      width: auto;
+
+      .aboutText {
+        h3 {
+          font-size: 36px;
+          margin-block-end: 20px;
+        }
+
+        span {
+          font-size: 20px;
+        }
+      }
+    }
   }
 }
