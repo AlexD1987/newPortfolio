@@ -95,9 +95,45 @@
   }
 }
 
-@media (max-width: 1300px) {
+@media (width <= 1300px) {
   .skillTree {
     padding-left: 3%;
     padding-right: 3%;
+  }
+}
+
+@media (width <= 1000px) {
+  .skillTree {
+    h3 {
+      font-size: 36px !important;
+      margin-top: -24px;
+    }
+
+    .skillIcons {
+      padding: 56px !important;
+      padding-top: 80px !important;
+      padding-bottom: 48px !important;
+      gap: 24px !important;
+
+      .singleIcon {
+        width: 128px !important;
+
+        .iconText {
+          font-size: 16px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 610px) {
+  .mySkills {
+    padding-top: 200px !important;
+
+    .skillIcons {
+      padding: 24px !important;
+      padding-top: 54px !important;
+      padding-bottom: 36px !important;
+    }
   }
 }

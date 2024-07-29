@@ -125,3 +125,19 @@
     }
   }
 }
+
+@media (width <= 700px) {
+  .aboutMe {
+    justify-content: center !important;
+
+    img {
+      width: 280px !important;
+    }
+
+    .imageBorder {
+      width: 280px !important;
+      height: 280px !important;
+    }
+  }
+
+}

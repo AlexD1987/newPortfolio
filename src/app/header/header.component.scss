@@ -105,6 +105,28 @@
     .portfolioMenu {
       transform: translateY(-120px);
     }
+
+    .responsiveAboutMenu {
+      transform: translateX(+200px);
+    }
+
+    .responsiveSkillsMenu {
+      transform: translateX(+400px);
+    }
+
+    .responsivePortfolioMenu {
+      transform: translateX(+600px);
+    }
+
+    .responsiveLanguage {
+      transform: translateX(+800px);
+
+      span {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 
   .headerMenu {
@@ -160,11 +182,15 @@
 }
 
 .openMenu {
-  transform: translateY(0px) !important;
+  transform: translateY(0px) translateX(0px) !important;
 }
 
 .transFont {
   color: #FF9900;
+}
+
+.d-none {
+  display: none;
 }
 
 @media (width <=1300px) {
@@ -176,6 +202,7 @@
 
 @media (width <=1000px) {
   .header {
+    height: 80px;
     .logo {
       height: 25px;
     }
@@ -188,13 +215,14 @@
       gap: 16px;
 
       a {
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 700;
       }
 
-      .language {
+      .language,
+      .responsiveLanguage {
         span {
-          font-size: 16px;
+          font-size: 20px !important;
           font-weight: 700;
         }
       }
@@ -222,3 +250,25 @@
     }
   }
 }
+
+@media (width <= 700px) {
+  .headerMenuSection {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 16px;
+    margin-top: 152px;
+
+    .menuBar {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+
+      .responsiveLanguage {
+        padding-right: 4px;
+      }
+    }
+  }
+}
+
+
+

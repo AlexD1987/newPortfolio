@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Renderer2, ElementRef, HostListener, ViewChild, AfterViewInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranlateModule } from "../translate.module";
 import { TranslateService } from '@ngx-translate/core';
@@ -11,8 +11,9 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   menuOpen: boolean = false;
+  responsiveView: boolean = false;
   LANG_KEY: string | undefined;
   translatedEn: boolean = true;
   translatedDe: boolean = false;
@@ -21,24 +22,17 @@ export class HeaderComponent implements OnInit {
   constructor(private translateService: TranslateService) { }
 
 
-
-  async ngOnInit(): Promise<void> {
-    /* await this.getLocalLang(); */
+  ngOnInit(): void {
+    this.checkResponsiveView();
   }
 
-  getLocalLang() {
-    let loadedLang = localStorage.getItem('LANG_KEY');
-    console.log(loadedLang);
-    if (loadedLang === null || loadedLang === 'en') {
-      localStorage.setItem('LANG_KEY', 'en');
-      this.LANG_KEY = 'en';
-      this.translateService.use(this.LANG_KEY);
+  ngAfterViewInit(): void {
+    this.checkResponsiveView();
+  }
 
-    } else {
-      this.LANG_KEY = loadedLang;
-      this.translateService.use('de');
-
-    }
+  @HostListener('window:resize')
+  onResize() {
+    this.checkResponsiveView();
   }
 
   switchLang(lang: string) {
@@ -62,5 +56,17 @@ export class HeaderComponent implements OnInit {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  checkResponsiveView() {
+    let screenWidth = window.innerWidth;
+
+    if (screenWidth <= 700) {
+      this.responsiveView = true;
+      console.log('mobile Ansicht');
+    } else {
+      this.responsiveView = false;
+      console.log('full Screen');
+    }
   }
 }
