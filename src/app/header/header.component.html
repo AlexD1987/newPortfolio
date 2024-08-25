@@ -1,21 +1,35 @@
 <div class="header" id="header">
-  <img class="logo" src="../../assets/images/logo.png" alt="">
-  <div class="headerMenuSection">
-    <div class="menuBar d-none">
-      <a [ngClass]="{'openMenu': menuOpen, 'aboutMenu' : !responsiveView, 'responsiveAboutMenu' : responsiveView}" class="fromLeft" href="#aboutMe">{{ 'ABOUT_TITLE' | translate
+    <img class="logo" src="../../assets/images/logo.png" alt="">
+    <div class="headerMenuSection">
+        <div [ngClass]="{'d-none': responsiveView}" class="menuBar">
+            <a [ngClass]="{'openMenu': menuOpen}" class="fromLeft aboutMenu" href="#aboutMe">{{ 'ABOUT_TITLE' |
+                translate
+                }}</a>
+            <a [ngClass]="{'openMenu': menuOpen}" class="fromLeft skillsMenu" href="#mySkills">{{ 'SKILL_TITLE' |
+                translate
+                }}</a>
+            <a [ngClass]="{'openMenu': menuOpen}" class="fromLeft portfolioMenu" href="#myProjects">Portfolio</a>
+            <div [ngClass]="{'openMenu': menuOpen}" class="langSwitch fromLeft language">
+                <span [ngClass]="{'transFont': translatedEn}" (click)="switchLang('en')">EN</span>
+                /
+                <span [ngClass]="{'transFont': translatedDe}" (click)="switchLang('de')">DE</span>
+            </div>
+        </div>
+        <div class="headerMenu" id="headerMenu" (click)="toggleButton()" [ngClass]="{'open': menuOpen}">
+            <div class="menuBtn">
+            </div>
+        </div>
+    </div>
+</div>
+<div [ngClass]="{'openResponsiveMenu': menuOpen, 'd-none': !responsiveView}" class="responsiveMenu">
+    <a [ngClass]="{'openMenu': menuOpen}" class="fromLeft" href="#aboutMe" (click)="toggleButton()">{{ 'ABOUT_TITLE' | translate
         }}</a>
-      <a [ngClass]="{'openMenu': menuOpen, 'skillsMenu' : !responsiveView, 'responsiveSkillsMenu' : responsiveView}" class="fromLeft" href="#mySkills">{{ 'SKILL_TITLE' | translate
+    <a [ngClass]="{'openMenu': menuOpen}" class="fromLeft" href="#mySkills" (click)="toggleButton()">{{ 'SKILL_TITLE' | translate
         }}</a>
-      <a [ngClass]="{'openMenu': menuOpen, 'portfolioMenu' : !responsiveView, 'responsivePortfolioMenu' : responsiveView}" class="fromLeft" href="#myProjects">Portfolio</a>
-      <div [ngClass]="{'openMenu': menuOpen, 'language' : !responsiveView, 'responsiveLanguage' : responsiveView}" class="langSwitch fromLeft">
+    <a [ngClass]="{'openMenu': menuOpen}" class="fromLeft" href="#myProjects" (click)="toggleButton()">Portfolio</a>
+    <div [ngClass]="{'openMenu': menuOpen}" class="langSwitch fromLeft">
         <span [ngClass]="{'transFont': translatedEn}" (click)="switchLang('en')">EN</span>
         /
         <span [ngClass]="{'transFont': translatedDe}" (click)="switchLang('de')">DE</span>
-      </div>
     </div>
-    <div class="headerMenu" id="headerMenu" (click)="toggleButton()" [ngClass]="{'open': menuOpen}">
-      <div class="menuBtn">
-      </div>
-    </div>
-  </div>
 </div>

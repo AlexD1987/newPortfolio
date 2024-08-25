@@ -49,39 +49,6 @@
       &:hover {
         cursor: default;
       }
-
-      span {
-        &:hover {
-          color: #FF9900;
-        }
-      }
-    }
-
-    a {
-      text-decoration: none;
-      padding-left: 4px;
-      padding-right: 4px;
-      font-family: 'Syne';
-      color: black;
-      font-size: 24px;
-      transition: all .8s ease-in-out;
-      overflow-y: hidden;
-    }
-
-    a::after {
-      display: block;
-      content: '';
-      border-bottom: solid 2px #FF9900;
-      transform: scaleX(0);
-      transition: transform .3s ease-in-out;
-    }
-
-    a:hover::after {
-      transform: scaleX(1);
-    }
-
-    a.fromLeft::after {
-      transform-origin: 0% 50%;
     }
 
     .language {
@@ -120,12 +87,6 @@
 
     .responsiveLanguage {
       transform: translateX(+800px);
-
-      span {
-        &:hover {
-          cursor: pointer;
-        }
-      }
     }
   }
 
@@ -189,8 +150,69 @@
   color: #FF9900;
 }
 
+a {
+  text-decoration: none;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-family: 'Syne';
+  color: black;
+  font-size: 24px;
+  transition: all .8s ease-in-out;
+  overflow-y: hidden;
+}
+
+a::after {
+  display: block;
+  content: '';
+  border-bottom: solid 2px #FF9900;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+a.fromLeft::after {
+  transform-origin: 0% 50%;
+}
+
+span {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.responsiveMenu {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 98;
+  width: 100%;
+  height: calc(100% - 80px);
+  background-color: #FFFCF3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  transform: translateX(100%);
+  transition: transform .7s ease-in-out;
+
+  a,
+  span {
+    font-size: 40px !important;
+  }
+  
+}
+
+.openResponsiveMenu {
+  transform: translateX(0px) !important;
+}
+
 .d-none {
-  display: none;
+  display: none !important;
 }
 
 @media (width <=1300px) {
@@ -252,22 +274,7 @@
 }
 
 @media (width <= 700px) {
-  .headerMenuSection {
-    flex-direction: column-reverse;
-    align-items: flex-end;
-    gap: 16px;
-    margin-top: 152px;
 
-    .menuBar {
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-
-      .responsiveLanguage {
-        padding-right: 4px;
-      }
-    }
-  }
 }
 
 
