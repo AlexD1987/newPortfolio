@@ -128,12 +128,25 @@
 
 @media (width <= 610px) {
   .mySkills {
-    padding-top: 200px !important;
+    height: auto;
 
-    .skillIcons {
-      padding: 24px !important;
-      padding-top: 54px !important;
-      padding-bottom: 36px !important;
+    .skillTree {
+      h3 {
+        font-size: 28px !important;
+        margin-top: -20px;
+      }
+
+      .skillIcons {
+        padding: 24px !important;
+        padding-top: 54px !important;
+        padding-bottom: 36px !important;
+      }
     }
+
+  
+  }
+
+  .skillsArrow {
+    padding-top: 80px;
   }
 }

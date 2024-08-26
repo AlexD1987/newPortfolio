@@ -254,23 +254,39 @@
 }
 
 @media (width <=600px) {
-    .projectLinks {
-        gap: 230px !important;
-        padding-bottom: 120px;
-    }
+    .portfolioProjects {
+        padding-top: 80px;
 
-    .projectImage {
-        img {
-            width: 340px !important;
+        .portfolioHead {
+            h3 {
+                font-size: 24px !important;
+                margin-block-start: 0;
+            }
+
+            span {
+                font-size: 20px !important;
+                text-align: center;
+            }
         }
 
-        .projectBorder {
-            width: 340px !important;
-            height: 188px !important;
-        }
+        .projectLinks {
+            gap: 230px !important;
+            padding-bottom: 120px;
 
-        .projectInfo {
-            transform: translateY(156px) !important;
+            .projectImage {
+                img {
+                    width: 340px !important;
+                }
+        
+                .projectBorder {
+                    width: 340px !important;
+                    height: 188px !important;
+                }
+        
+                .projectInfo {
+                    transform: translateY(156px) !important;
+                }
+            }
         }
     }
 
