@@ -20,5 +20,6 @@
   "ERROR_NAME": "Bitte gib deinen Namen ein",
   "ERROR_MAIL": "Bitte gib eine gültige email Adresse ein",
   "ERROR_MESSAGE": "Bitte gib eine Nachricht ein",
-  "LEGAL_NOTICE": "Impressum"
+  "LEGAL_NOTICE": "Impressum",
+  "LEGAL_ONE": "Informationen über den Diensteanbieter. <br><br>Alexander Dause \n\nSudetenstrasse 5 \n38518 Gifhorn \nDeutschland \n\nTel.: 015251054762"
 }

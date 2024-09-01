@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    padding-bottom: 4px;
 
     img {
       height: 24px;
@@ -66,7 +67,7 @@
         }
       }
 
-      a {
+      span {
         color: #FFFCF3;
         text-decoration: none;
         font-family: 'Syne';
@@ -75,7 +76,34 @@
 
         &:hover {
           color: #FF9900;
+          cursor: pointer;
         }
+      }
+    }
+  }
+}
+
+.legalNotice {
+  background-color: #FFFCF3;
+  width: 100%;
+  z-index: 97;
+  height: calc(100vh - 80px);
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding-left: 12%;
+  padding-right: 12%;
+
+  .closeLegalNotice {
+    img {
+      padding-top: 24px;
+      padding-left: 54px;
+      width: 40px;
+      rotate: 90deg;
+
+      &:hover {
+        cursor: pointer;
       }
     }
   }
