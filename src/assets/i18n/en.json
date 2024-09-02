@@ -20,6 +20,12 @@
   "ERROR_NAME": "Please enter your name",
   "ERROR_MAIL": "Please enter your email address",
   "ERROR_MESSAGE": "Please enter your message",
-  "LEGAL_NOTICE": "Legal notice",
-  "LEGAL_ONE": "Informationen über den Diensteanbieter. \n\nAlexander Dause \n\nSudetenstrasse 5 \n38518 Gifhorn \nDeutschland \n\nTel.: 015251054762"
+  "IMPRINT_HEAD": "Imprint",
+  "IMPRINT_101": "Alexander Dause",
+  "IMPRINT_102": "Sudetenstrasse 5",
+  "IMPRINT_103": "38518 Gifhorn",
+  "IMPRINT_104": "Germany",
+  "IMPRINT_105": "Contact",
+  "IMPRINT_106": "Tel.: 015251054762",
+  "IMPRINT_107": "E-Mail: contact@alex-dause.de"
 }

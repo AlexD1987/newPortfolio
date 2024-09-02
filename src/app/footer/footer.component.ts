@@ -1,13 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranlateModule } from "../translate.module";
 
 @Component({
-  selector: 'app-footer',
-  standalone: true,
-  imports: [TranlateModule],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+    selector: 'app-footer',
+    standalone: true,
+    imports: [TranlateModule],
+    templateUrl: './footer.component.html',
+    styleUrl: './footer.component.scss'
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
+    ngOnInit(): void {
+    }
 
+    imprintOpen: boolean = false;
+
+    openImprint() {
+        this.imprintOpen = true;
+    }
+
+    closeImprint() {
+        this.imprintOpen = false;
+        console.log(this.imprintOpen);
+    }
 }

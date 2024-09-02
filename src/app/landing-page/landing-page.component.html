@@ -1,20 +1,22 @@
 <div class="mainPage">
-  <h1 [ngClass]="{'d-none': !startTitle }" [@titleOneAnimation]="titleOneState" id="titleOne">{{ 'TITLE_ONE' | translate  }}</h1>
-  <h1 [ngClass]="{'d-none': !startTitle }" [@titleTwoAnimation]="titleTwoState" id="titleTwo">{{ 'TITLE_TWO' | translate  }}</h1>
-  <div [@titleNameAnimation]="nameSlideIn" class="mainName">
-    <div #border [ngClass]="{'drawLine': slideBorder}" class="mainLine"></div>
-    <h2 [ngClass]="{'d-none': !startTitle }">Alexander Dause</h2>
-  </div>
+    <h1 [ngClass]="{'d-none': !startTitle }" [@titleOneAnimation]="titleOneState" id="titleOne">{{ 'TITLE_ONE' |
+        translate }}</h1>
+    <h1 [ngClass]="{'d-none': !startTitle }" [@titleTwoAnimation]="titleTwoState" id="titleTwo">{{ 'TITLE_TWO' |
+        translate }}</h1>
+    <div [@titleNameAnimation]="nameSlideIn" class="mainName">
+        <div #border [ngClass]="{'drawLine': slideBorder}" class="mainLine"></div>
+        <h2 [ngClass]="{'d-none': !startTitle }">Alexander Dause</h2>
+    </div>
 </div>
 <div class="mainBorder">
-  <div class="myMail">
-    <a href="#contact">contact&#x0040;alex-dause.de</a>
-  </div>
-  <div class="scrollSection">
-    <div class="scrollArrow">
-      <img [ngClass]="{'animated bounce': startArrow}" src="../../assets/images/arrow.png"
-        style="animation-duration: 2.5s; animation-delay: 1.5s;">
+    <div class="myMail">
+        <a href="#contact">contact&#x0040;alex-dause.de</a>
     </div>
-    <span>{{ 'SCROLL_ONE' | translate  }}<br>{{ 'SCROLL_TWO' | translate  }}</span>
-  </div>
+    <div class="scrollSection">
+        <div class="scrollArrow">
+            <img [ngClass]="{'animated bounce': startArrow}" src="../../assets/images/arrow.png"
+                style="animation-duration: 2.5s; animation-delay: 1.5s;">
+        </div>
+        <span>{{ 'SCROLL_ONE' | translate }}<br>{{ 'SCROLL_TWO' | translate }}</span>
+    </div>
 </div>

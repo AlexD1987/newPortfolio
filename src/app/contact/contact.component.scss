@@ -1,155 +1,155 @@
 .contactSection {
-  background-image: url(../../assets/images/Rectangle\ 5.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  padding-top: 10%;
+    background-image: url(../../assets/images/Rectangle\ 5.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding-top: 10%;
 
-  .contactHead {
-    color: #FFFCF3 !important;
-    padding-left: 12%;
-  }
-
-  .contactInput {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 12%;
-    padding-right: 12%;
-
-    h2 {
-      color: #FF9900 !important;
-      font-size: 32px !important;
-      font-weight: 300;
-      margin-block-end: 0;
-      margin-block-start: 32px;
+    .contactHead {
+        color: #FFFCF3 !important;
+        padding-left: 12%;
     }
 
-    h4 {
-      color: #FFFCF3;
-      font-weight: 400;
-    }
-
-    .contactInputFields {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-
-      input {
-        height: 32px;
-      }
-
-      textarea {
-        resize: none;
-      }
-
-      input,
-      textarea {
-        font-size: 16px;
-        font-weight: 700;
-        padding-left: 16px;
-        padding-right: 16px;
-        font-family: 'Syne';
-        color: #FFFCF3;
-        width: 500px;
-        background-color: transparent;
-        border: none;
-        border-bottom: 3px solid #FFFCF3;
-
-
-        &:focus {
-          outline: none;
-          border-bottom: 3px solid #FF9900;
-        }
-      }
-
-      input,
-      textarea::placeholder {
-        font-size: 16px;
-        font-weight: 700;
-      }
-
-      .sendBtn {
+    .contactInput {
+        background-color: black;
         display: flex;
-        justify-content: center;
-        margin-top: 32px !important;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 12%;
+        padding-right: 12%;
 
-        button {
-          background: none;
-          border: none;
-          outline: none;
-          box-shadow: none;
-
-          &:hover {
-            cursor: pointer;
-          }
+        h2 {
+            color: #FF9900 !important;
+            font-size: 32px !important;
+            font-weight: 300;
+            margin-block-end: 0;
+            margin-block-start: 32px;
         }
 
-        .btn-1 {
-          color: #FFFCF3 !important;
-          font-size: 24px !important;
-
-          rect {
-            stroke: #FFFCF3 !important;
-          }
+        h4 {
+            color: #FFFCF3;
+            font-weight: 400;
         }
-      }
+
+        .contactInputFields {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            input {
+                height: 32px;
+            }
+
+            textarea {
+                resize: none;
+            }
+
+            input,
+            textarea {
+                font-size: 16px;
+                font-weight: 700;
+                padding-left: 16px;
+                padding-right: 16px;
+                font-family: 'Syne';
+                color: #FFFCF3;
+                width: 500px;
+                background-color: transparent;
+                border: none;
+                border-bottom: 3px solid #FFFCF3;
+
+                &:focus {
+                    outline: none;
+                    border-bottom: 3px solid #FF9900;
+                }
+            }
+
+            input,
+            textarea::placeholder {
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .sendBtn {
+                display: flex;
+                justify-content: center;
+                margin-top: 32px !important;
+
+                button {
+                    background: none;
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .btn-1 {
+                    color: #FFFCF3 !important;
+                    font-size: 24px !important;
+
+                    rect {
+                        stroke: #FFFCF3 !important;
+                    }
+                }
+            }
+        }
     }
-  }
 }
 
 .validBorder {
-  border-bottom: 3px solid #70e61c !important;
+    border-bottom: 3px solid #70e61c !important;
 }
 
 .errorBorder {
-  border-bottom: 3px solid #E61C40 !important;
+    border-bottom: 3px solid #E61C40 !important;
 }
 
 .errorInput {
-  position: absolute;
-  color: #E61C40;
-  font-family: 'Syne';
-  padding-left: 16px;
-  margin-top: 2px;
+    position: absolute;
+    color: #E61C40;
+    font-family: 'Syne';
+    padding-left: 16px;
+    margin-top: 2px;
 }
 
-@media (width <= 1300px) {
-  .contactSection {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+@media (width <=1300px) {
+    .contactSection {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
-    .contactHead {
-      padding-left: 0;
+        .contactHead {
+            padding-left: 0;
+        }
     }
-  }
 }
 
-@media (width <= 700px) {
-.contactSection {
-  justify-content: center !important;
+@media (width <=700px) {
+    .contactSection {
+        justify-content: center !important;
 
-  .contactHead {
-    font-size: 40px !important;
-  }
-}
-
-  .contactInput {
-    padding-left: 1% !important;
-    padding-right: 1% !important;
-
-    h2,
-    h4 {
-      text-align: center !important;
+        .contactHead {
+            font-size: 40px !important;
+        }
     }
 
-    .contactInputFields {
-      input,
-      textarea {
-        width: 88vw !important;
-      }
+    .contactInput {
+        padding-left: 1% !important;
+        padding-right: 1% !important;
+
+        h2,
+        h4 {
+            text-align: center !important;
+        }
+
+        .contactInputFields {
+
+            input,
+            textarea {
+                width: 88vw !important;
+            }
+        }
     }
-  }
 }

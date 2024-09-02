@@ -6,7 +6,7 @@
     <div class="rightFooter">
         <img class="animated reverseBounce" src="../../assets/images/arrow_white.png" alt="">
         <div class="socialMediaIcons">
-            <span href="">{{ 'LEGAL_NOTICE' | translate }}</span>
+            <span href="" (click)="openImprint()">{{ 'IMPRINT_HEAD' | translate }}</span>
             <div class="gitIcon" onclick="window.open('https://github.com/AlexD1987')"></div>
             <div class="linkedIcon"
                 onclick="window.open('https://www.linkedin.com/in/alexander-dause-91884a28a/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BRD94zvYeSn%2BXNk0W425cdQ%3D%3D')">
@@ -14,13 +14,18 @@
         </div>
     </div>
 </div>
-<div class="legalNotice">
-    <div class="closeLegalNotice">
-        <img src="../../assets/images/arrow.png" alt="">
+<div [ngClass]="{'openImprint': imprintOpen}" class="imprintWindow">
+    <div class="closeImprint">
+        <img src="../../assets/images/arrow.png" alt="" (click)="closeImprint()">
     </div>
-    <div class="innerLegalNotice">
-        <h1>{{ 'LEGAL_NOTICE' | translate }}</h1>
-        <span>{{ 'LEGAL_ONE' | translate }}</span>
-
+    <div class="imprintText">
+        <h1>{{ 'IMPRINT_HEAD' | translate }}</h1>
+        <span>{{ 'IMPRINT_101' | translate }}<br></span>
+        <span>{{ 'IMPRINT_102' | translate }}<br></span>
+        <span>{{ 'IMPRINT_103' | translate }}<br></span>
+        <span>{{ 'IMPRINT_104' | translate }}<br></span>
+        <h2>{{ 'IMPRINT_105' | translate }}<br></h2>
+        <span>{{ 'IMPRINT_106' | translate }}<br></span>
+        <span>{{ 'IMPRINT_107' | translate }}<br></span>
     </div>
 </div>

@@ -1,156 +1,155 @@
 .aboutSection {
-  padding-top: 240px;
-  width: 100%;
-  height: calc(100vh - 132px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 60px;
+    padding-top: 240px;
+    width: 100%;
+    height: calc(100vh - 132px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
 }
 
 .aboutMe {
-  margin-left: 12%;
-  margin-right: 12%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .aboutDescription {
-    width: 60%;
+    margin-left: 12%;
+    margin-right: 12%;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    gap: 40px;
 
-    .aboutText {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 16px;
+    .aboutDescription {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+        .aboutText {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 16px;
+        }
+
+        h3 {
+            margin-block-start: 0;
+        }
     }
 
-    h3 {
-      margin-block-start: 0;
-    }
-  }
+    .aboutImage {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 180px;
+        background-position: center center;
+        transition: .5s cubic-bezier(.5, .03, .41, 1);
 
-  .aboutImage {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 180px;
-    background-position: center center;
-    transition: .5s cubic-bezier(.5, .03, .41, 1);
+        img {
+            width: 360px;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: top;
+        }
 
-    img {
-      width: 360px;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      object-position: top;
-    }
+        .imageBorder {
+            border: solid 3px black;
+            width: 360px;
+            height: 360px;
+            margin-top: -3px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(.5, .03, .41, 1),
+                transform 0.5s cubic-bezier(.5, .03, .41, 1);
+        }
 
-    .imageBorder {
-      border: solid 3px black;
-      width: 360px;
-      height: 360px;
-      margin-top: -3px;
-      position: absolute;
-      opacity: 0;
-      transition: opacity 0.5s cubic-bezier(.5, .03, .41, 1),
-        transform 0.5s cubic-bezier(.5, .03, .41, 1);
+        &:hover>.imageBorder {
+            animation: fadeIn 0.3s ease-in-out;
+            opacity: 1;
+            transform: translate(-8px, -8px);
+        }
     }
-
-    &:hover > .imageBorder{
-      animation: fadeIn 0.3s ease-in-out;
-      opacity: 1;
-      transform: translate(-8px, -8px);
-    }
-  }
 }
 
 .skillsArrow {
-  padding-left: 12%;
-  padding-right: 20%;
-  padding-bottom: 48px;
-  display: flex;
-  justify-content: flex-end;
+    padding-left: 12%;
+    padding-right: 20%;
+    padding-bottom: 48px;
+    display: flex;
+    justify-content: flex-end;
 
-  .skillArrowAnimation {
-    overflow: hidden;
-    width: 160px;
-    height: 160px;
-    position: relative;
+    .skillArrowAnimation {
+        overflow: hidden;
+        width: 160px;
+        height: 160px;
+        position: relative;
 
-    img {
-      height: 100%;
-      position: absolute;
-      animation: runAnimation 7s linear infinite;
+        img {
+            height: 100%;
+            position: absolute;
+            animation: runAnimation 7s linear infinite;
+        }
     }
-  }
 }
 
 .responsiveImage {
-  margin-bottom: 0px !important;
+    margin-bottom: 0px !important;
 
 }
 
 .d-none {
-  display: none !important;
+    display: none !important;
 }
 
 @media (max-width: 1300px) {
-  .aboutMe {
-    margin-left: 3%;
-    margin-right: 3%;
-  }
+    .aboutMe {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
 }
 
-@media (width <= 1000px) {
-  .aboutMe {
-    justify-content: center;
+@media (width <=1000px) {
+    .aboutMe {
+        justify-content: center;
 
-    .aboutDescription {
-      width: auto;
+        .aboutDescription {
+            width: auto;
 
-      .aboutText {
-        h3 {
-          font-size: 36px;
-          margin-block-end: 20px;
+            .aboutText {
+                h3 {
+                    font-size: 36px;
+                    margin-block-end: 20px;
+                }
+
+                span {
+                    font-size: 20px;
+                }
+            }
         }
-
-        span {
-          font-size: 20px;
-        }
-      }
     }
-  }
 }
 
-@media (width <= 700px) {
-  .aboutSection {
-    padding-top: 60px;
-    gap: 80px;
-    height: auto;
-  }
-
-  .aboutMe {
-    justify-content: center !important;
-
-    img {
-      width: 280px !important;
+@media (width <=700px) {
+    .aboutSection {
+        padding-top: 60px;
+        gap: 80px;
+        height: auto;
     }
 
-    .imageBorder {
-      width: 280px !important;
-      height: 280px !important;
-    }
+    .aboutMe {
+        justify-content: center !important;
 
-    .aboutText {
-      h3 {
-        font-size: 24px !important;
-      }
-    }
-  }
+        img {
+            width: 280px !important;
+        }
 
+        .imageBorder {
+            width: 280px !important;
+            height: 280px !important;
+        }
+
+        .aboutText {
+            h3 {
+                font-size: 24px !important;
+            }
+        }
+    }
 }

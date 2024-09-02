@@ -13,9 +13,9 @@ export class MyProjectsComponent implements OnInit, AfterViewInit {
     @ViewChild('reverseInfo') reverseInfo: ElementRef | undefined;
     @ViewChild('reverseBorder') reverseBorder: ElementRef | undefined;
 
-    constructor(private renderer: Renderer2) {}
+    constructor(private renderer: Renderer2) { }
 
-    ngOnInit(): void {}
+    ngOnInit(): void { }
 
     ngAfterViewInit(): void {
         this.responsiveDesign();

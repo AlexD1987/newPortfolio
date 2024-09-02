@@ -19,15 +19,13 @@ import { TranslateService } from '@ngx-translate/core';
     imports: [CommonModule, RouterOutlet, TranlateModule, LandingPageComponent, HeaderComponent, AboutMeComponent, MySkillsComponent, MyProjectsComponent, ContactComponent, FooterComponent]
 })
 export class AppComponent implements OnInit {
-  private readonly LANG_KEY = 'selectedLanguage';
+    private readonly LANG_KEY = 'selectedLanguage';
 
-  constructor(private translate: TranslateService) {}
+    constructor(private translate: TranslateService) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
 
+    }
 
-  }
-
-
-  title = 'myPortfolio';
+    title = 'myPortfolio';
 }
