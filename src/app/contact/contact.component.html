@@ -20,7 +20,7 @@
                 <textarea [(ngModel)]="contactData.message" placeholder="{{ 'INPUT_MESSAGE' | translate }}" name=""
                     id="contactMessage" cols="30" rows="10" formControlName="message"
                     [ngClass]="{'errorBorder': validMessage === false, 'validBorder': validMessage}"></textarea>
-                <p *ngIf="validMail === false" class="errorInput">{{ 'ERROR_MESSAGE' | translate }}</p>
+                <p *ngIf="validMessage === false" class="errorInput">{{ 'ERROR_MESSAGE' | translate }}</p>
             </div>
 
             <div class="sendBtn">

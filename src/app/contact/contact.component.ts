@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { isEmail } from 'validator';
@@ -27,6 +27,27 @@ export class ContactComponent {
         message: ""
     }
 
+    @HostListener('window:keyup', ['$event'])
+    handleKeyUp(event: KeyboardEvent) {
+        const value = event.target as HTMLInputElement | HTMLTextAreaElement;
+
+        if (value.id === 'contactName') {
+            console.log('Name:', value.value)
+            
+        } else if (value.id === 'contactMail') {
+            console.log('Mail:', value.value)
+            this.checkValidMail();
+            if (value.value === '') {
+                setTimeout(() => {
+                    this.validMail = undefined;
+                }, 4000)
+            }
+        } else if (value.id === 'contactMessage') {
+            console.log('Message:', value.value)
+        }
+    }
+    
+
     contactForm = new FormGroup({
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
@@ -48,7 +69,6 @@ export class ContactComponent {
         event.preventDefault();
         this.checkValidInput();
         this.checkValidMail();
-        console.log(this.contactData);
 
         if (this.validName && this.validMail && this.validMessage) {
             this.sendMail();
@@ -73,7 +93,6 @@ export class ContactComponent {
             .subscribe({
                 next: (response) => {
                     // Handle successful response (e.g., show success message)
-                    console.log('Email sent successfully!');
                     this.completeMessage = true;
                     this.contactForm.reset();
                     this.resetMailInput();
@@ -92,6 +111,6 @@ export class ContactComponent {
             this.validMail = undefined;
             this.validMessage = undefined;
             this.completeMessage = false;
-        }, 3000);
+        }, 4000);
     }
 }

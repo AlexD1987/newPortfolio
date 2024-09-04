@@ -62,10 +62,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
         if (screenWidth <= 900) {
             this.responsiveView = true;
-            console.log('mobile Ansicht');
         } else {
             this.responsiveView = false;
-            console.log('full Screen');
         }
     }
 }

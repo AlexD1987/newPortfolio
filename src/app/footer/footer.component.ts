@@ -20,6 +20,5 @@ export class FooterComponent implements OnInit {
 
     closeImprint() {
         this.imprintOpen = false;
-        console.log(this.imprintOpen);
     }
 }
