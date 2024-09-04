@@ -21,51 +21,64 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
     constructor(private translateService: TranslateService) { }
 
+    /**
+     * Initializes the component's logic by checking the responsive view and setting the `responsiveView` flag accordingly.
+     */
     ngOnInit(): void {
         this.checkResponsiveView();
     }
 
+    /**
+     * Initializes responsive design logic after the component's view has been initialized.
+     */
     ngAfterViewInit(): void {
         this.checkResponsiveView();
     }
 
+    /**
+     * Handles window resize events and calls the `checkResponsiveView` method to adjust the component's layout accordingly.
+     */
     @HostListener('window:resize')
     onResize() {
         this.checkResponsiveView();
     }
 
+    /**
+     * Switches the language of the application based on the provided language code.
+
+     * @param {string} lang - The language code to switch to (either 'en' or 'de').
+     */
     switchLang(lang: string) {
         if (lang === 'en') {
-            localStorage.setItem('LANG_KEY', 'de');
             this.translateService.use('en');
             this.translatedEn = true;
             this.translatedDe = false;
         } else {
-            localStorage.setItem('LANG_KEY', 'en');
             this.translateService.use('de');
             this.translatedDe = true;
             this.translatedEn = false;
         }
     }
 
+    /**
+     * Toggles the `menuOpen` flag, which can be used to control the visibility of a menu or other UI elements.
+     */
     toggleButton() {
         this.menuOpen = !this.menuOpen;
-        console.log(this.menuOpen);
     }
 
-    toggleMenu() {
-        this.menuOpen = !this.menuOpen;
-    }
+    /**
+     * Checks the screen width and sets the `responsiveView` flag accordingly.
 
+     * @param {number} screenWidth - The current screen width in pixels (optional, as it can be retrieved within the method).
+     */
     checkResponsiveView() {
         let screenWidth = window.innerWidth;
 
         if (screenWidth <= 900) {
             this.responsiveView = true;
-            console.log('mobile Ansicht');
         } else {
             this.responsiveView = false;
-            console.log('full Screen');
         }
     }
 }

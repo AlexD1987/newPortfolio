@@ -21,18 +21,35 @@ export class ContactComponent {
     validMessage: boolean | undefined;
     completeMessage = false;
 
+    /**
+     * An object representing contact data, including name, email, and message.
+     */
     contactData = {
         name: "",
         email: "",
         message: ""
     }
 
+    /**
+     * Creates a FormGroup instance named `contactForm` to handle form validation for contact data.
+     *
+     * The form group includes the following controls:
+     *  - `name`: A FormControl with a required validator.
+     *  - `email`: A FormControl with required and email validators.
+     *  - `message`: A FormControl with a required validator.
+     */
     contactForm = new FormGroup({
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
         message: new FormControl('', Validators.required),
     });
 
+    /**
+     * Configuration for sending contact form data.
+     * @property {string} endPoint - URL of the endpoint for sending the data.
+     * @property {function} body - Function for formatting the data for sending.
+     * @property {object} options - HTTP options for the request.
+     */
     post = {
         endPoint: 'https://alex-dause.de/sendMail.php',
         body: (payload: any) => JSON.stringify(payload),
@@ -44,23 +61,37 @@ export class ContactComponent {
         },
     };
 
+    /**
+     * Handles form submission, preventing the default form action and performing validation checks.
+     * If all validation checks pass, sends the contact data using the `sendMail` method.
+     *
+     * @param {Event} event - The form submission event.
+     */
     onSubmit(event: Event) {
         event.preventDefault();
         this.checkValidInput();
         this.checkValidMail();
-        console.log(this.contactData);
 
         if (this.validName && this.validMail && this.validMessage) {
             this.sendMail();
         }
     }
 
+    /**
+     * Checks if all contact data fields (name, email, message) have a value and sets corresponding validation flags.
+     */
     checkValidInput() {
         this.validName = this.contactData.name != '';
         this.validMail = this.contactData.email != '';
         this.validMessage = this.contactData.message != '';
     }
 
+    /**
+     * Validates the email field in the contact data using an `isEmail` function (assumed to be defined elsewhere).
+     * Sets the `validMail` flag based on the result of the `isEmail` function. If `isEmail` returns undefined (potentially indicating an error), considers it valid as well.
+     * 
+     * @param {string} email - The email address to be validated (assumed to be retrieved from `this.contactData.email`).
+     */
     checkValidMail() {
         const email = this.contactData.email;
         const validMailAdress = isEmail(email);
@@ -68,6 +99,16 @@ export class ContactComponent {
         this.validMail = validMailAdress || validMailAdress === undefined;
     }
 
+    /**
+     * Sends the contact data to the server using an HTTP POST request. 
+     *
+     * - Uses the `post.endPoint` URL for the request.
+     * - Formats the contact data using the `post.body` function before sending.
+     * - Subscribes to the HTTP response observable to handle success, error, and completion scenarios.
+       - On success (2xx status code), logs a success message, sets a completion flag, and resets the form and mail input fields.
+       - On error, logs the error message to the console.
+       - On completion, logs a completion message to the console (informational only).  
+     */
     sendMail() {
         this.http.post(this.post.endPoint, this.post.body(this.contactData))
             .subscribe({
@@ -86,6 +127,10 @@ export class ContactComponent {
             });
     }
 
+    /**
+     * Resets the validation flags and completion flag after a delay of 3 seconds.
+     * This is typically used to clear the form state after a successful submission.
+     */
     resetMailInput() {
         setTimeout(() => {
             this.validName = undefined;
