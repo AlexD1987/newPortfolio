@@ -1,9 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnInit, Renderer2, ElementRef, HostListener, ViewChild, AfterViewInit } from '@angular/core';
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { TranslateLoader, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Component, OnInit, Renderer2, ElementRef, HostListener, ViewChild, AfterViewInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { TranlateModule } from "../translate.module";
 
 
@@ -14,6 +12,16 @@ import { TranlateModule } from "../translate.module";
     imports: [CommonModule, TranlateModule],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.scss',
+    /**
+     * Animations for the component.
+     *
+     * Includes three triggers:
+     *   - `titleOneAnimation`: Animates the first title element.
+     *   - `titleTwoAnimation`: Animates the second title element.
+     *   - `titleNameAnimation`: Animates the title name element.
+     *
+     * Each trigger defines states for 'inactive' and 'active', and transitions between these states with specified animations.
+     */
     animations: [
         trigger('titleOneAnimation', [
             state('inactive', style({
@@ -62,6 +70,11 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
 
     constructor(private translateService: TranslateService, private renderer: Renderer2) { }
 
+    /**
+     * Initializes the component's logic by setting various state flags with delays to control the animations of different elements.
+
+     * @param {number} delay - The delay in milliseconds before executing the callback function.
+     */
     ngOnInit(): void {
         setTimeout(() => {
             this.titleOneState = 'active';
@@ -81,22 +94,40 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
         }, 7000);
     }
 
+    /**
+     * Initializes responsive design logic after the component's view has been fully initialized.
+     */
     ngAfterViewInit(): void {
         this.responsiveDesign();
     }
 
+    /**
+     * Handles window resize events and calls the `responsiveDesign` method to adjust the component's layout accordingly.
+     */
     @HostListener('window:resize')
     onResize() {
         this.responsiveDesign();
     }
 
-    private responsiveDesign() {
+    /**
+     * Handles responsive design for the component, adjusting the layout based on the screen width and the visibility of the border element.
+
+     * @param {number} screenWidth - The current screen width in pixels.
+     * @param {HTMLElement | null} border - The native element of the border, or null if it doesn't exist.
+     */
+    responsiveDesign() {
         let screenWidth = window.innerWidth;
         let border = this.border?.nativeElement;
 
         this.handleResponsiveDesign(screenWidth, border);
     }
 
+    /**
+     * Handles responsive design, adjusting the visibility of the border element based on the screen width.
+
+     * @param {number} screenWidth - The current screen width in pixels.
+     * @param {HTMLElement | null} border - The native element of the border, or null if it doesn't exist.
+     */
     handleResponsiveDesign(screenWidth: number, border: any) {
         if (screenWidth <= 1000) {
             this.renderer.addClass(border, 'd-none');
