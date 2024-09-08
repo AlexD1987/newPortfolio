@@ -96,6 +96,27 @@
             }
         }
     }
+
+    .checkBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        
+        input {
+            height: 16px !important;
+            width: 16px !important;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        span {
+            color: #FFFCF3;
+            font-size: 14px;
+        }
+    }
 }
 
 .validBorder {

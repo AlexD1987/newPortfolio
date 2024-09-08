@@ -20,6 +20,10 @@ export class ContactComponent {
     validMail: boolean | undefined;
     validMessage: boolean | undefined;
     completeMessage = false;
+    triggerNameInput: boolean = false;
+    triggerMailInput: boolean = false;
+    triggerMessageInput: boolean = false;
+    isChecked = false;
 
     contactData = {
         name: "",
@@ -28,25 +32,66 @@ export class ContactComponent {
     }
 
     @HostListener('window:keyup', ['$event'])
-    handleKeyUp(event: KeyboardEvent) {
-        const value = event.target as HTMLInputElement | HTMLTextAreaElement;
-
-        if (value.id === 'contactName') {
-            console.log('Name:', value.value)
-            
-        } else if (value.id === 'contactMail') {
-            console.log('Mail:', value.value)
-            this.checkValidMail();
-            if (value.value === '') {
-                setTimeout(() => {
-                    this.validMail = undefined;
-                }, 4000)
+    listenInput(event: KeyboardEvent) {
+        const input = event.target as HTMLInputElement | HTMLTextAreaElement;
+        
+        if (event.type === 'keyup') {
+            if (input.id === 'contactName') {
+                this.triggerNameInput = true;
+                console.log(this.triggerNameInput);
+            } else if (input.id === 'contactMail') {
+                this.triggerMailInput = true;
+                console.log(this.triggerMailInput)
+            } else if (input.id === 'contactMessage') {
+                this.triggerMessageInput = true;
+                console.log(this.triggerMessageInput)
             }
-        } else if (value.id === 'contactMessage') {
-            console.log('Message:', value.value)
         }
     }
-    
+
+    @HostListener('document: focusout', ['$event'])
+    handleInputEvent(event: FocusEvent) {
+        const input = event.target as HTMLInputElement | HTMLTextAreaElement;
+
+        if (input) {
+            if (input.id === 'contactName' && this.triggerNameInput) {
+                this.handleNameInput(input);
+            } else if (input.id === 'contactMail' && this.triggerMailInput) {
+                this.handleMailInput(input);
+            } else if (input.id === 'contactMessage' && this.triggerMessageInput) {
+                this.handleMessageInput(input);
+            }
+        }
+    }
+
+    handleNameInput(input: any) {
+        if (input.value === '') {
+            console.log(this.isChecked);
+            this.validName = false;
+        } else {
+            this.validName = true;
+        }
+    }
+
+    handleMailInput(input: any) {
+        this.checkValidMail();
+        if (input.value === '') {
+            this.validMail = false;
+        }
+    }
+
+    handleMessageInput(input: any) {
+        if (input.value === '') {
+            this.validMessage = false;
+        } else {
+            this.validMessage = true;
+        }
+    }
+
+    toggleCheckBox() {
+        this.isChecked = !this.isChecked;
+        console.log(this.isChecked);
+    }
 
     contactForm = new FormGroup({
         name: new FormControl('', Validators.required),
@@ -69,6 +114,7 @@ export class ContactComponent {
         event.preventDefault();
         this.checkValidInput();
         this.checkValidMail();
+        console.log(this.isChecked);
 
         if (this.validName && this.validMail && this.validMessage) {
             this.sendMail();
@@ -84,7 +130,7 @@ export class ContactComponent {
     checkValidMail() {
         const email = this.contactData.email;
         const validMailAdress = isEmail(email);
-
+        console.log(validMailAdress);
         this.validMail = validMailAdress || validMailAdress === undefined;
     }
 
