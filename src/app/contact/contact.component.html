@@ -24,8 +24,8 @@
             </div>
 
             <div class="checkBox">
-                <input type="checkbox" (click)="toggleCheckBox()">
-                <span>I've read the privacy policy and agree to the processing of my data as outlined.</span>
+                <input type="checkbox" (click)="toggleCheckBox()" id="policyCheckBox">
+                <span>I've read the <a [href]="policyHref" target="_blank">{{ 'POLICY' | translate }}</a> and agree to the processing of my data as outlined.</span>
             </div>
 
             <div class="sendBtn">

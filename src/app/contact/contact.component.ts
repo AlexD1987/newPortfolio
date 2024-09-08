@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { isEmail } from 'validator';
 import { TranlateModule } from "../translate.module";
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -13,8 +14,20 @@ import { TranlateModule } from "../translate.module";
     templateUrl: './contact.component.html',
     styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
-    constructor(private http: HttpClient) { }
+export class ContactComponent implements OnInit {
+
+    policyHref: string | undefined;
+
+    constructor(private http: HttpClient, private translate: TranslateService) { }
+
+    ngOnInit(): void {
+        this.setPolicyHref();
+        console.log(this.policyHref);
+        
+        this.translate.onLangChange.subscribe(() => {
+            this.setPolicyHref();
+          });
+    }
 
     validName: boolean | undefined;
     validMail: boolean | undefined;
@@ -96,7 +109,7 @@ export class ContactComponent {
     contactForm = new FormGroup({
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
-        message: new FormControl('', Validators.required),
+        message: new FormControl('', Validators.required)
     });
 
     post = {
@@ -114,7 +127,7 @@ export class ContactComponent {
         event.preventDefault();
         this.checkValidInput();
         this.checkValidMail();
-        console.log(this.isChecked);
+        this.resetCheckBox();
 
         if (this.validName && this.validMail && this.validMessage) {
             this.sendMail();
@@ -152,11 +165,31 @@ export class ContactComponent {
     }
 
     resetMailInput() {
+        this.isChecked = false;
         setTimeout(() => {
             this.validName = undefined;
             this.validMail = undefined;
             this.validMessage = undefined;
             this.completeMessage = false;
         }, 4000);
+    }
+
+    resetCheckBox() {
+        const checkbox = (document.getElementById('policyCheckBox') as HTMLInputElement);
+        const checked = checkbox?.checked;
+        
+        checkbox.checked = false;
+    }
+
+    setPolicyHref() {
+        const currentLang = this.translate.currentLang;
+        
+        if (currentLang === 'de') {
+            this.policyHref = './assets/policy/policyDe.html';
+            console.log(this.policyHref);
+        } else {
+            this.policyHref = './assets/policy/policyEn.html';
+            console.log(this.policyHref);
+        }
     }
 }

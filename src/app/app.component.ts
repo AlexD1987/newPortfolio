@@ -11,6 +11,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { TranlateModule } from './translate.module';
 import { TranslateService } from '@ngx-translate/core';
 
+
 @Component({
     selector: 'app-root',
     standalone: true,
