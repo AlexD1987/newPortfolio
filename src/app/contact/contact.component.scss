@@ -115,6 +115,11 @@
         span {
             color: #FFFCF3;
             font-size: 14px;
+
+            a {
+                text-decoration: none;
+                color: #FF9900;
+            }
         }
     }
 }
@@ -185,6 +190,13 @@
 
                 span {
                     text-align: center;
+                }
+            }
+
+            .sendBtn {
+                .btn-1 {
+                    padding-left: 16px;
+                    padding-right: 16px;
                 }
             }
         }
