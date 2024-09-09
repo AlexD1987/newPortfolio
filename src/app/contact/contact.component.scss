@@ -20,7 +20,7 @@
 
         h2 {
             color: #FF9900 !important;
-            font-size: 32px !important;
+            font-size: 32px;
             font-weight: 300;
             margin-block-end: 0;
             margin-block-start: 32px;
@@ -86,11 +86,11 @@
                 }
 
                 .btn-1 {
-                    color: #FFFCF3 !important;
-                    font-size: 24px !important;
+                    color: #FFFCF3;
+                    font-size: 24px;
 
                     rect {
-                        stroke: #FFFCF3 !important;
+                        stroke: #FFFCF3;
                     }
                 }
             }
@@ -135,6 +135,10 @@
     margin-top: 2px;
 }
 
+.grayScale {
+    color: gray !important;
+}
+
 @media (width <=1300px) {
     .contactSection {
         display: flex;
@@ -163,13 +167,23 @@
         h2,
         h4 {
             text-align: center !important;
+            font-size: 20px !important;
         }
 
         .contactInputFields {
 
             input,
             textarea {
-                width: 88vw !important;
+                width: 90vw !important;
+            }
+
+            .checkBox {
+                flex-direction: column;
+                align-items: center;
+
+                span {
+                    text-align: center;
+                }
             }
         }
     }

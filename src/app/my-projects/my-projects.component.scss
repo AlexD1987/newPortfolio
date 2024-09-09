@@ -246,6 +246,31 @@
             transform: translateX(0px) !important;
             transform: translateY(0px) !important;
         }
+
+        .projectBorder {
+            opacity: 1 !important;
+            transform: translate(8px, 8px) !important;
+        }
+
+        .reverseBorder {
+            opacity: 1 !important;
+            transform: translate(-8px, 8px) !important;
+        }
+
+        img {
+            filter: grayscale(0%) !important;
+        }
+
+        .projectInfo {
+            opacity: 1 !important;
+            transform: translateX(100px) !important;
+            transform: translateY(156px) !important;
+        }
+
+        .reverseInfo {
+            opacity: 1 !important;
+            transform: translateX(-100px) !important;
+        }
     }
 
     .projectCounter {
@@ -283,14 +308,16 @@
                     height: 188px !important;
                 }
 
-                .projectInfo {
-                    transform: translateY(156px) !important;
-                }
             }
         }
     }
 
     .skillsArrow {
         padding-bottom: 40px !important;
+
+        .skillArrowAnimation {
+            height: 80px;
+            width: 80px;
+        }
     }
 }

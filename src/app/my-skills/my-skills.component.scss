@@ -146,5 +146,10 @@
 
     .skillsArrow {
         padding-top: 80px;
+
+        .skillArrowAnimation {
+            height: 80px;
+            width: 80px;
+        }
     }
 }
