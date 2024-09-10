@@ -22,7 +22,6 @@ export class ContactComponent implements OnInit {
 
     ngOnInit(): void {
         this.setPolicyHref();
-        console.log(this.policyHref);
         
         this.translate.onLangChange.subscribe(() => {
             this.setPolicyHref();
@@ -51,13 +50,10 @@ export class ContactComponent implements OnInit {
         if (event.type === 'keyup') {
             if (input.id === 'contactName') {
                 this.triggerNameInput = true;
-                console.log(this.triggerNameInput);
             } else if (input.id === 'contactMail') {
                 this.triggerMailInput = true;
-                console.log(this.triggerMailInput)
             } else if (input.id === 'contactMessage') {
                 this.triggerMessageInput = true;
-                console.log(this.triggerMessageInput)
             }
         }
     }
@@ -79,7 +75,6 @@ export class ContactComponent implements OnInit {
 
     handleNameInput(input: any) {
         if (input.value === '') {
-            console.log(this.isChecked);
             this.validName = false;
         } else {
             this.validName = true;
@@ -103,7 +98,6 @@ export class ContactComponent implements OnInit {
 
     toggleCheckBox() {
         this.isChecked = !this.isChecked;
-        console.log(this.isChecked);
     }
 
     contactForm = new FormGroup({
@@ -143,7 +137,6 @@ export class ContactComponent implements OnInit {
     checkValidMail() {
         const email = this.contactData.email;
         const validMailAdress = isEmail(email);
-        console.log(validMailAdress);
         this.validMail = validMailAdress || validMailAdress === undefined;
     }
 
@@ -166,6 +159,7 @@ export class ContactComponent implements OnInit {
 
     resetMailInput() {
         this.isChecked = false;
+        this.sendSuccess();
         setTimeout(() => {
             this.validName = undefined;
             this.validMail = undefined;
@@ -176,9 +170,12 @@ export class ContactComponent implements OnInit {
 
     resetCheckBox() {
         const checkbox = (document.getElementById('policyCheckBox') as HTMLInputElement);
-        const checked = checkbox?.checked;
-        
         checkbox.checked = false;
+    }
+
+    sendSuccess() {
+        const sendMessage = document.getElementById('contactMessage');
+        
     }
 
     setPolicyHref() {
@@ -186,10 +183,8 @@ export class ContactComponent implements OnInit {
         
         if (currentLang === 'de') {
             this.policyHref = './assets/policy/policyDe.html';
-            console.log(this.policyHref);
         } else {
             this.policyHref = './assets/policy/policyEn.html';
-            console.log(this.policyHref);
         }
     }
 }

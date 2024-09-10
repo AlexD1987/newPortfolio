@@ -29,6 +29,10 @@
         img {
             width: 24px;
             height: auto;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         .socialMediaIcons {
