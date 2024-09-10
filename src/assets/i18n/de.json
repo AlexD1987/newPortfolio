@@ -28,5 +28,7 @@
   "IMPRINT_105": "Kontakt",
   "IMPRINT_106": "Tel.: 015251054762",
   "IMPRINT_107": "E-Mail: contact@alex-dause.de",
-  "POLICY": "Datenschutzbestimmung"
+  "POLICY": "Datenschutzbestimmung",
+  "CHECKBOX_1": "Ich habe die",
+  "CHECKBOX_2": "gelesen und stimme der Verarbeitung meiner Daten zu."
 }

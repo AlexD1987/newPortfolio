@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { isEmail } from 'validator';
 import { TranlateModule } from "../translate.module";
 import { TranslateService } from '@ngx-translate/core';
+import { gsap } from "gsap";
 
 
 @Component({
@@ -22,10 +23,9 @@ export class ContactComponent implements OnInit {
 
     ngOnInit(): void {
         this.setPolicyHref();
-        
         this.translate.onLangChange.subscribe(() => {
             this.setPolicyHref();
-          });
+        });
     }
 
     validName: boolean | undefined;
@@ -36,6 +36,7 @@ export class ContactComponent implements OnInit {
     triggerMailInput: boolean = false;
     triggerMessageInput: boolean = false;
     isChecked = false;
+    currentLang: string = '';
 
     contactData = {
         name: "",
@@ -46,7 +47,7 @@ export class ContactComponent implements OnInit {
     @HostListener('window:keyup', ['$event'])
     listenInput(event: KeyboardEvent) {
         const input = event.target as HTMLInputElement | HTMLTextAreaElement;
-        
+
         if (event.type === 'keyup') {
             if (input.id === 'contactName') {
                 this.triggerNameInput = true;
@@ -151,9 +152,9 @@ export class ContactComponent implements OnInit {
                 },
                 error: (error) => {
                     // Handle error (e.g., show error message)
-                    console.error('Error sending email:', error);
+                    console.error();
                 },
-                complete: () => console.info('Send post complete'),
+                complete: () => console.info(),
             });
     }
 
@@ -165,7 +166,7 @@ export class ContactComponent implements OnInit {
             this.validMail = undefined;
             this.validMessage = undefined;
             this.completeMessage = false;
-        }, 4000);
+        }, 17000);
     }
 
     resetCheckBox() {
@@ -174,17 +175,56 @@ export class ContactComponent implements OnInit {
     }
 
     sendSuccess() {
-        const sendMessage = document.getElementById('contactMessage');
-        
+        const sendMessage = document.getElementById('contactMessage') as HTMLTextAreaElement;
+        const message = this.checkMessageLang();
+
+        if (sendMessage) {
+            sendMessage.value = "";
+
+            let currentText = "";
+            const tl = gsap.timeline({ repeat: 0 });
+
+            for (let i = 0; i < message.length; i++) {
+                tl.to({}, {
+                    duration: 0.15,
+                    onComplete: () => {
+                        currentText += message.charAt(i);
+                        sendMessage.value = currentText;
+                    }
+                });
+            }
+
+            tl.to({}, { duration: 5 });
+
+            for (let i = message.length - 1; i >= 0; i--) {
+                tl.to({}, {
+                    duration: 0.15,
+                    onComplete: () => {
+                        currentText = currentText.slice(0, -1);
+                        sendMessage.value = currentText;
+                    }
+                });
+            }
+        }
     }
 
     setPolicyHref() {
         const currentLang = this.translate.currentLang;
-        
+
         if (currentLang === 'de') {
             this.policyHref = './assets/policy/policyDe.html';
+            this.currentLang = 'de';
         } else {
             this.policyHref = './assets/policy/policyEn.html';
+            this.currentLang = 'en';
+        }
+    }
+
+    checkMessageLang() {
+        if (this.currentLang === 'en') {
+            return 'Thanks for your message!'
+        } else {
+            return 'Vielen dank für deine Nachricht!'
         }
     }
 }

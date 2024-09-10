@@ -25,7 +25,7 @@
 
             <div class="checkBox">
                 <input type="checkbox" (click)="toggleCheckBox()" id="policyCheckBox">
-                <span>I've read the <a [href]="policyHref" target="_blank">{{ 'POLICY' | translate }}</a> and agree to the processing of my data as outlined.</span>
+                <span>{{ 'CHECKBOX_1' | translate }} <a [href]="policyHref" target="_blank">{{ 'POLICY' | translate }}</a> {{ 'CHECKBOX_2' | translate }}</span>
             </div>
 
             <div class="sendBtn">
