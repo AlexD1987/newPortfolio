@@ -21,6 +21,9 @@ export class ContactComponent implements OnInit {
 
     constructor(private http: HttpClient, private translate: TranslateService) { }
 
+    /**
+     * Initializes the component, setting the policy link and subscribing to language change events.
+     */
     ngOnInit(): void {
         this.setPolicyHref();
         this.translate.onLangChange.subscribe(() => {
@@ -38,12 +41,23 @@ export class ContactComponent implements OnInit {
     isChecked = false;
     currentLang: string = '';
 
+    /**
+     * @typedef {Object} ContactData
+     * @property {string} name - Contact person's name
+     * @property {string} email - Contact person's email
+     * @property {string} message - Contact person's message
+     */
     contactData = {
         name: "",
         email: "",
         message: ""
     }
 
+    /**
+     * Listens for keyup events on window and triggers corresponding input flags.
+     * 
+     * @param {KeyboardEvent} event - The keyboard event object.
+     */
     @HostListener('window:keyup', ['$event'])
     listenInput(event: KeyboardEvent) {
         const input = event.target as HTMLInputElement | HTMLTextAreaElement;
@@ -59,6 +73,11 @@ export class ContactComponent implements OnInit {
         }
     }
 
+    /**
+     * Handles focusout events on the document and triggers input handling based on input id.
+     * 
+     * @param {FocusEvent} event - The focus event object.
+     */
     @HostListener('document: focusout', ['$event'])
     handleInputEvent(event: FocusEvent) {
         const input = event.target as HTMLInputElement | HTMLTextAreaElement;
@@ -74,6 +93,11 @@ export class ContactComponent implements OnInit {
         }
     }
 
+    /**
+     * Validates the name input and sets the validName flag.
+     * 
+     * @param {HTMLInputElement} input - The input element for the name field.
+     */
     handleNameInput(input: any) {
         if (input.value === '') {
             this.validName = false;
@@ -82,6 +106,11 @@ export class ContactComponent implements OnInit {
         }
     }
 
+    /**
+     * Validates the mail input and sets the validMail flag. Also checks if the mail is valid.
+     * 
+     * @param {HTMLInputElement} input - The input element for the mail field.
+     */
     handleMailInput(input: any) {
         this.checkValidMail();
         if (input.value === '') {
@@ -89,6 +118,11 @@ export class ContactComponent implements OnInit {
         }
     }
 
+    /**
+     * Validates the message input and sets the validMessage flag.
+     * 
+     * @param {HTMLInputElement} input - The input element for the message field.
+     */
     handleMessageInput(input: any) {
         if (input.value === '') {
             this.validMessage = false;
@@ -97,16 +131,29 @@ export class ContactComponent implements OnInit {
         }
     }
 
+    /**
+     * Toggles the state of the isChecked flag.
+     */
     toggleCheckBox() {
         this.isChecked = !this.isChecked;
     }
 
+    /**
+     * Defines the contact form with validation rules for name, email, and message fields.
+     * 
+     * @type {FormGroup}
+     */
     contactForm = new FormGroup({
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
         message: new FormControl('', Validators.required)
     });
 
+    /**
+     * Represents a POST request configuration with endpoint, body serialization, and options.
+     * 
+     * @type {{ endPoint: string, body: (payload: any) => string, options: { headers: { 'Content-Type': string, responseType: string } } }}
+     */
     post = {
         endPoint: 'https://alex-dause.de/sendMail.php',
         body: (payload: any) => JSON.stringify(payload),
@@ -118,6 +165,11 @@ export class ContactComponent implements OnInit {
         },
     };
 
+    /**
+     * Handles the form submission, validating inputs and sending an email if valid.
+     * 
+     * @param {Event} event - The event object for the form submission.
+     */
     onSubmit(event: Event) {
         event.preventDefault();
         this.checkValidInput();
@@ -129,35 +181,47 @@ export class ContactComponent implements OnInit {
         }
     }
 
+    /**
+     * Checks the validity of the input fields and updates the corresponding validation flags.
+     */
     checkValidInput() {
         this.validName = this.contactData.name != '';
         this.validMail = this.contactData.email != '';
         this.validMessage = this.contactData.message != '';
     }
 
+    /**
+     * Validates the email address from contactData and updates the validMail flag.
+     */
     checkValidMail() {
         const email = this.contactData.email;
         const validMailAdress = isEmail(email);
         this.validMail = validMailAdress || validMailAdress === undefined;
     }
 
+    /**
+     * Sends the email using the configured POST request and handles the response.
+     */
     sendMail() {
         this.http.post(this.post.endPoint, this.post.body(this.contactData))
             .subscribe({
                 next: (response) => {
-                    // Handle successful response (e.g., show success message)
                     this.completeMessage = true;
                     this.contactForm.reset();
                     this.resetMailInput();
                 },
                 error: (error) => {
-                    // Handle error (e.g., show error message)
                     console.error();
                 },
                 complete: () => console.info(),
             });
     }
 
+    /**
+     * Resets the mail input state and validation flags after a successful send.
+     * 
+     * @returns {void}
+     */
     resetMailInput() {
         this.isChecked = false;
         this.sendSuccess();
@@ -169,11 +233,19 @@ export class ContactComponent implements OnInit {
         }, 17000);
     }
 
+    /**
+     * Resets the checkbox state for the policy agreement.
+     * 
+     * @returns {void}
+     */
     resetCheckBox() {
         const checkbox = (document.getElementById('policyCheckBox') as HTMLInputElement);
         checkbox.checked = false;
     }
 
+    /**
+     * Displays a success message in the contact message textarea by animating text input.
+     */
     sendSuccess() {
         const sendMessage = document.getElementById('contactMessage') as HTMLTextAreaElement;
         const message = this.checkMessageLang();
@@ -208,6 +280,9 @@ export class ContactComponent implements OnInit {
         }
     }
 
+    /**
+     * Sets the policy document link based on the current language.
+     */
     setPolicyHref() {
         const currentLang = this.translate.currentLang;
 
@@ -220,6 +295,11 @@ export class ContactComponent implements OnInit {
         }
     }
 
+    /**
+     * Returns a success message based on the current language setting.
+     * 
+     * @returns {string} The success message in the appropriate language.
+     */
     checkMessageLang() {
         if (this.currentLang === 'en') {
             return 'Thanks for your message!'
